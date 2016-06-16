@@ -1285,7 +1285,9 @@ public class QueryExecutorImpl implements QueryExecutor {
     String statementName = null;
     if (!oneShot) {
       // Generate a statement name to use.
-      statementName = "S_" + (nextUniqueID++);
+      md5 = md5sum(query.text)
+      statementName = "S_" + md5;
+      nextUniqueID++;
 
       // And prepare the new statement.
       // NB: Must clone the OID array, as it's a direct reference to
