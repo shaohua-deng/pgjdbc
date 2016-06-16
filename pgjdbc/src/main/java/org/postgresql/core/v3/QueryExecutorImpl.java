@@ -1285,7 +1285,7 @@ public class QueryExecutorImpl implements QueryExecutor {
     String statementName = null;
     if (!oneShot) {
       // Generate a statement name to use.
-      md5 = md5sum(query.text)
+      md5 = md5sum(query.getNativeSql())
       statementName = "S_" + md5;
       nextUniqueID++;
 
